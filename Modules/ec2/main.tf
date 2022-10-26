@@ -1,17 +1,10 @@
-data "aws_ami" "amazon_linux" {
-  most_recent = true
+data "aws_ami_ids" "linux" {
+  owners = ["137112412989"]
 
   filter {
     name   = "name"
     values = ["amazon/amzn2-ami-kernel-5.10-hvm-2.0.20221004.0-x86_64-gp2"]
   }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["137112412989"]
 }
 
 resource "aws_instance" "bastion" {
