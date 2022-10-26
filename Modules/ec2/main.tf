@@ -1,23 +1,17 @@
-resource "aws_instance" "bastion" {
-  ami                         = var.ami_id
-  instance_type               = var.instance_type
-  associate_public_ip_address = true
-  key_name                    = var.key_name
-  security_groups             = [var.pubsg_name]
-}
+# resource "aws_instance" "bastion" {
+#   ami                         = var.ami_id
+#   instance_type               = var.instance_type
+#   associate_public_ip_address = true
+#   key_name                    = var.key_name
+#   security_groups             = [var.pubsg_name]
+# }
 
 resource "aws_launch_template" "project_launch" {
   name = "project_launch"
   image_id = var.ami_id
   instance_type = var.instance_type
   key_name = var.key_name
-
-  monitoring {
-    enabled = true
-  }
-
   vpc_security_group_ids = [var.sg_id]
-
   user_data = filebase64("${path.module}/script.sh")
 }
 
