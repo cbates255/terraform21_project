@@ -16,10 +16,6 @@ resource "aws_launch_template" "project_launch" {
     enabled = true
   }
 
-  network_interfaces {
-    associate_public_ip_address = true
-  }
-
   vpc_security_group_ids = [var.sg_id]
 
   user_data = filebase64("${path.module}/script.sh")
