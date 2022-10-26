@@ -16,14 +16,7 @@ resource "aws_launch_template" "project" {
   name_prefix   = "project"
   image_id      = var.ami_id
   instance_type = var.instance_type
-  user_data = <<EOF
-    !/bin/bash
-    sudo yum update -y
-    sudo yum upgrade -y
-    sudo yum install httpd -y
-    sudo systemctl enable httpd
-    sudo systemctl start httpd
-  EOF
+  user_data = filebase64("${path.module}/script.sh")
 }
 
 resource "aws_autoscaling_group" "projectASGgroup" {
