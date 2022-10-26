@@ -24,4 +24,5 @@ module "ec2" {
   sg_id         = module.network.privSG_id
   tag           = "webserver"
   targetARN     = module.balancer.targetARN
+  key_name      = var.key_name
 }
