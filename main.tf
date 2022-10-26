@@ -12,6 +12,7 @@ module "balancer" {
   vpc_id         = module.network.vpc_id
   listenport     = 80
   listenprotocol = "HTTP"
+  ASGid          = module.ec2.ASGid 
 }
 
 module "ec2" {
