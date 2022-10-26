@@ -19,10 +19,7 @@ module "LoadBalancer" {
 
 module "ec2" {
   source        = "./Modules/ec2"
-  image_ami     = "ami-026b57f3c383c2eec"
   instance_type = "t2.micro"
   tags          = "ExampleAppServerInstance"
-  sg_id         = module.security_group.group_id
-  profile       = module.IAM.instance_profile
-  key_name      = "latestpair"
+  pubsg_id         = module.VPC.pubsg_id
 }

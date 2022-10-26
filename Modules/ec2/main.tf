@@ -1,3 +1,27 @@
+data "aws_ami" "amazon_linux" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["amazon/amzn2-ami-kernel-5.10-hvm-2.0.20221004.0-x86_64-gp2"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["137112412989"]
+}
+
+resource "aws_instance" "bastion" {
+  ami = data.aws_ami.amazon_linux.id
+  instance_type = var.instance_type
+  associate_public_ip_address = true
+  key_name = var.key_name
+  security_groups = var.pubsg_id
+}
+
 resource "aws_instance" "app_server" {
   ami           = var.image_ami
   instance_type = var.instance_type
@@ -17,3 +41,4 @@ resource "aws_instance" "app_server" {
     Name = var.tags
   }
 }
+
