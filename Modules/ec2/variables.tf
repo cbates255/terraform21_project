@@ -6,3 +6,4 @@ variable "listedAZs" {}
 variable "sg_id" {}
 variable "tag" {}
 variable "targetARN" {}
+variable "ami_id" {}

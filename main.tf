@@ -25,4 +25,5 @@ module "ec2" {
   tag           = "webserver"
   targetARN     = module.balancer.targetARN
   key_name      = var.key_name
+  ami_id        = "ami-09d3b3274b6c5d4aa"
 }
