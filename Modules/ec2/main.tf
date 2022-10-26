@@ -21,9 +21,9 @@ resource "aws_launch_template" "project" {
 
 resource "aws_autoscaling_group" "projectASGgroup" {
   availability_zones = var.listedAZs
-  desired_capacity   = 2
+  desired_capacity   = 1
   max_size           = 5
-  min_size           = 2
+  min_size           = 1
 
   launch_template {
     id      = aws_launch_template.project.id
