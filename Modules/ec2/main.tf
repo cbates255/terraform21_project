@@ -12,7 +12,7 @@ resource "aws_instance" "bastion" {
   instance_type               = var.instance_type
   associate_public_ip_address = true
   key_name                    = var.key_name
-  security_groups             = var.pubsg_id
+  security_groups             = [var.pubsg_id]
 }
 
 resource "aws_launch_template" "project_launch" {
@@ -32,11 +32,7 @@ resource "aws_launch_template" "project_launch" {
     associate_public_ip_address = true
   }
 
-  placement {
-    availability_zone = var.listedAZs
-  }
-
-  vpc_security_group_ids = var.sg_id
+  vpc_security_group_ids = [var.sg_id]
 
   tag_specifications {
 
