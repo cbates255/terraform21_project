@@ -31,11 +31,6 @@ module "ec2" {
 module "autoscale_group" {
   source = "cloudposse/ec2-autoscale-group/aws"
 
-  namespace   = var.namespace
-  stage       = var.stage
-  environment = var.environment
-  name        = var.name
-
   image_id                    = "ami-09d3b3274b6c5d4aa"
   instance_type               = "t2.micro"
   security_group_ids          = module.network.privSG_id
