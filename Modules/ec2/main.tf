@@ -22,14 +22,7 @@ resource "aws_launch_template" "project_launch" {
 
   vpc_security_group_ids = [var.sg_id]
 
-  user_data = <<EOF
-  #!/bin/bash
-  sudo yum update -y
-  sudo yum upgrade -y
-  sudo yum install httpd -y
-  sudo systemctl enable httpd
-  sudo systemctl start httpd
-  EOF
+  user_data = filebase64("${path.module}/script.sh")
 }
 
 resource "aws_placement_group" "projectplacement" {
