@@ -27,3 +27,23 @@ module "ec2" {
   key_name      = var.key_name
   ami_id        = "ami-09d3b3274b6c5d4aa"
 }
+
+module "autoscale_group" {
+  source = "cloudposse/ec2-autoscale-group/aws"
+
+  namespace   = var.namespace
+  stage       = var.stage
+  environment = var.environment
+  name        = var.name
+
+  image_id                    = "ami-09d3b3274b6c5d4aa"
+  instance_type               = "t2.micro"
+  security_group_ids          = module.network.privSG_id
+  subnet_ids                  = module.network.privsubid
+  health_check_type           = "EC2"
+  min_size                    = 2
+  max_size                    = 5
+  wait_for_capacity_timeout   = "5m"
+  associate_public_ip_address = true
+  user_data_base64            = filebase64("${path.cwd}/script.sh")
+}  
