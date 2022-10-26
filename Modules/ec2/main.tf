@@ -1,12 +1,3 @@
-data "aws_ami_ids" "linux" {
-  owners = ["137112412989"]
-
-  filter {
-    name   = "name"
-    values = ["amazon/amzn2-ami-kernel-5.10-hvm-2.0.20221004.0-x86_64-gp2"]
-  }
-}
-
 resource "aws_instance" "bastion" {
   ami                         = var.ami_id
   instance_type               = var.instance_type
@@ -17,11 +8,8 @@ resource "aws_instance" "bastion" {
 
 resource "aws_launch_template" "project_launch" {
   name = "project_launch"
-
   image_id = var.ami_id
-
   instance_type = var.instance_type
-
   key_name = var.key_name
 
   monitoring {
