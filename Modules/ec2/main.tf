@@ -11,7 +11,6 @@ resource "aws_launch_template" "project_launch" {
   image_id = var.ami_id
   instance_type = var.instance_type
   key_name = var.key_name
-  vpc_security_group_ids = [var.sg_id]
   user_data = filebase64("${path.module}/script.sh")
 }
 
