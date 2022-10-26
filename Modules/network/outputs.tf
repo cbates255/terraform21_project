@@ -13,3 +13,7 @@ output "vpc_id" {
 output "listedAZs" {
   value = var.azs
 }
+
+output "privSG_id" {
+  value = aws_security_group.private_SG.id
+}

@@ -27,19 +27,19 @@ resource "aws_lb_listener" "projectlistener" {
 
 resource "aws_lb_target_group_attachment" "projectattach1" {
   target_group_arn = aws_lb_target_group.projectTARGETgroup.arn
-  target_id        = #auto scaling group
+  target_id        = var.ASGid
   port             = 80
 }
 
 #LB security group
-rsource "aws_security_group" "albsecurity" {
-  name        = "albsecurity"
-  vpc_id      = var.vpc_id
+resource "aws_security_group" "albsecurity" {
+  name   = "albsecurity"
+  vpc_id = var.vpc_id
 
   ingress {
-    from_port        = 80
-    to_port          = 80
-    protocol         = "tcp"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
