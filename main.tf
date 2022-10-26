@@ -19,7 +19,7 @@ module "ec2" {
   source        = "./Modules/ec2"
   instance_type = "t2.micro"
   tags          = "ExampleAppServerInstance"
-  pubsg_id      = module.network.pubsg_id
+  pubsg_name    = module.network.pubsg_name
   listedAZs     = module.network.listedAZs
   sg_id         = module.network.privSG_id
   tag           = "webserver"

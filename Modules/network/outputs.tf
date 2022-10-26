@@ -1,5 +1,5 @@
-output "pubsg_id" {
-  value = aws_security_group.public_SG.id
+output "pubsg_name" {
+  value = aws_security_group.public_SG.name
 }
 
 output "privsubid" {

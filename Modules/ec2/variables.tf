@@ -1,6 +1,6 @@
 variable "instance_type" {}
 variable "tags" {}
-variable "pubsg_id" {}
+variable "pubsg_name" {}
 variable "key_name" {}
 variable "listedAZs" {}
 variable "sg_id" {}

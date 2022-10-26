@@ -3,7 +3,7 @@ resource "aws_instance" "bastion" {
   instance_type               = var.instance_type
   associate_public_ip_address = true
   key_name                    = var.key_name
-  security_groups             = [var.pubsg_id]
+  security_groups             = [var.pubsg_name]
 }
 
 resource "aws_launch_template" "project_launch" {
@@ -21,13 +21,6 @@ resource "aws_launch_template" "project_launch" {
   }
 
   vpc_security_group_ids = [var.sg_id]
-
-  tag_specifications {
-
-    tags = {
-      Name = var.tag
-    }
-  }
 
   user_data = <<EOF
   #!/bin/bash
