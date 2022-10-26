@@ -65,7 +65,7 @@ resource "aws_autoscaling_group" "project_ASG" {
   desired_capacity          = 2
   force_delete              = true
   placement_group           = aws_placement_group.projectplacement.id
-  availability_zones        = [var.listedAZs[*]]
+  availability_zones        = var.listedAZs
   launch_template {
     name = aws_launch_template.project_launch.name
   }
