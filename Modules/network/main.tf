@@ -96,3 +96,19 @@ resource "aws_route_table_association" "private" {
   subnet_id      = aws_subnet.privsub[count.index].id
   route_table_id = aws_route_table.privateroute.id
 }
+
+resource "aws_eip" "elastic_ip" {
+  vpc        = true
+  depends_on = [aws_internet_gateway.projectgateway]
+}
+
+resource "aws_nat_gateway" "project_nat" {
+  allocation_id = aws_eip.elastic_ip.id
+  subnet_id     = aws_subnet.pubsub[0].id
+
+  tags = {
+    Name = "gw NAT"
+  }
+
+  depends_on = [aws_internet_gateway.projectgateway]
+}

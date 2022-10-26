@@ -26,4 +26,6 @@ module "ec2" {
   targetARN     = module.balancer.targetARN
   key_name      = var.key_name
   ami_id        = "ami-09d3b3274b6c5d4aa"
+  privsubids    = module.network.privsubid
+  albarn        = module.balancer.albarn
 }
