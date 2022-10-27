@@ -27,12 +27,6 @@ resource "aws_lb_listener" "projectlistener" {
   }
 }
 
-resource "aws_lb_target_group_attachment" "projectattach1" {
-  target_group_arn = aws_lb_target_group.projectTARGETgroup.arn
-  target_id        = var.asgid
-  port             = 80
-}
-
 #LB security group
 resource "aws_security_group" "albsecurity" {
   name   = "albsecurity"
