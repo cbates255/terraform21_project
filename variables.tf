@@ -1,3 +1,6 @@
+# --- root/variables.tf
+
+
 variable "region" {}
 variable "key_name" {}
 variable "access_key" {}

@@ -1,3 +1,5 @@
+# --- balancer/main.tf
+
 #Create an ALB with target group and listeners
 resource "aws_lb" "projectLB" {
   name               = "projectLB"

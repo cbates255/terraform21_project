@@ -1,3 +1,6 @@
+# --- network/outputs.tf
+
+
 output "pubsg_name" {
   value = aws_security_group.public_SG.name
 }

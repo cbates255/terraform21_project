@@ -1,3 +1,4 @@
+# --- network/main.tf
 
 #VPC resource
 resource "aws_vpc" "projectVPC" {
