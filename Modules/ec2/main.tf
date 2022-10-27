@@ -1,12 +1,12 @@
 # --- ec2/main.tf
 
-# resource "aws_instance" "bastion" {
-#   ami                         = var.ami_id
-#   instance_type               = var.instance_type
-#   associate_public_ip_address = true
-#   key_name                    = var.key_name
-#   security_groups             = [var.pubsg_name]
-# }
+resource "aws_instance" "bastion" {
+  ami                         = var.ami_id
+  instance_type               = var.instance_type
+  associate_public_ip_address = true
+  key_name                    = var.key_name
+  security_groups             = [var.pubsg_name]
+}
 
 # Create a new ALB Target Group attachment
 resource "aws_autoscaling_attachment" "asg_project_attachment" {
