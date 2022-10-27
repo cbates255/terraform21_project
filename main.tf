@@ -32,4 +32,5 @@ module "ec2" {
   albarn        = module.balancer.albarn
   pubSGid       = module.network.pubSGid
   publicsubid   = module.network.publicsubid
+  privSGname    = module.network.privSGname
 }

@@ -20,6 +20,7 @@ resource "aws_launch_template" "project" {
   name_prefix   = "project"
   image_id      = var.ami_id
   instance_type = var.instance_type
+  security_group_names = [ var.privSGname ]
   user_data = filebase64("${path.module}/script.sh")
 }
 

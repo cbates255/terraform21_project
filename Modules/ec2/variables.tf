@@ -13,3 +13,4 @@ variable "privsubids" {}
 variable "albarn" {}
 variable "pubSGid" {}
 variable "publicsubid" {}
+variable "privSGname" {}
