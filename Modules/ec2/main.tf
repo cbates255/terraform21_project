@@ -24,7 +24,8 @@ resource "aws_launch_template" "project" {
 
 # Create the ASG
 resource "aws_autoscaling_group" "projectASGgroup" {
-  availability_zones = var.listedAZs
+  vpc_zone_identifier = var.privsubids
+
   desired_capacity   = 2
   max_size           = 5
   min_size           = 2

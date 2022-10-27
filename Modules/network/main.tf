@@ -7,6 +7,7 @@ resource "aws_vpc" "projectVPC" {
 
 #Public subnets resource
 resource "aws_subnet" "pubsub" {
+  
   vpc_id                  = aws_vpc.projectVPC.id
   count                   = length(var.azs)
   availability_zone       = var.azs[count.index]
