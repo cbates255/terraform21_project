@@ -6,6 +6,7 @@ resource "aws_instance" "bastion" {
   associate_public_ip_address = true
   key_name                    = var.key_name
   vpc_security_group_ids      = [var.pubSGid]
+  subnet_id                   = var.publicsubid
 }
 
 # Create a new ALB Target Group attachment

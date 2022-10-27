@@ -24,3 +24,7 @@ output "privSG_id" {
 output "pubSGid" {
   value = aws_security_group.public_SG.id
 }
+
+output "publicsubid" {
+  value = aws_subnet.pubsub[0].id
+}

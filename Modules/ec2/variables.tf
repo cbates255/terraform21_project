@@ -12,3 +12,4 @@ variable "ami_id" {}
 variable "privsubids" {}
 variable "albarn" {}
 variable "pubSGid" {}
+variable "publicsubid" {}

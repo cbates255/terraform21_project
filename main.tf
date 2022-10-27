@@ -31,4 +31,5 @@ module "ec2" {
   privsubids    = module.network.privsubid
   albarn        = module.balancer.albarn
   pubSGid       = module.network.pubSGid
+  publicsubid   = module.network.publicsubid
 }
