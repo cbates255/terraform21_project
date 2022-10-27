@@ -20,3 +20,7 @@ output "listedAZs" {
 output "privSG_id" {
   value = aws_security_group.private_SG.id
 }
+
+output "pubSGid" {
+  value = aws_security_group.public_SG.id
+}

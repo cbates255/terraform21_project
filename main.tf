@@ -30,4 +30,5 @@ module "ec2" {
   ami_id        = "ami-09d3b3274b6c5d4aa"
   privsubids    = module.network.privsubid
   albarn        = module.balancer.albarn
+  pubSGid       = module.network.pubSGid
 }
