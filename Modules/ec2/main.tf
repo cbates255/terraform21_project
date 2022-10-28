@@ -18,6 +18,7 @@ resource "aws_autoscaling_attachment" "asg_project_attachment" {
 # Launch template for ASG
 resource "aws_launch_template" "project" {
   name_prefix   = "project"
+  vpc_security_group_ids = [ "value" ]
   image_id      = var.ami_id
   instance_type = var.instance_type
   security_group_names = [ var.privSGname ]

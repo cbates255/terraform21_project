@@ -33,4 +33,5 @@ module "ec2" {
   pubSGid       = module.network.pubSGid
   publicsubid   = module.network.publicsubid
   privSGname    = module.network.privSGname
+  privSGid      = module.network.privSG_id
 }
