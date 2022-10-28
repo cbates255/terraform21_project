@@ -28,9 +28,9 @@ resource "aws_launch_template" "project" {
 resource "aws_autoscaling_group" "projectASGgroup" {
   vpc_zone_identifier = var.privsubids
 
-  desired_capacity   = 2
+  desired_capacity   = 3
   max_size           = 5
-  min_size           = 2
+  min_size           = 3
 
   launch_template {
     id      = aws_launch_template.project.id
