@@ -18,10 +18,10 @@ resource "aws_autoscaling_attachment" "asg_project_attachment" {
 # Launch template for ASG
 resource "aws_launch_template" "project" {
   name_prefix   = "project"
-  vpc_security_group_ids = [ "value" ]
+  vpc_security_group_ids = [ var.privSGid ]
   image_id      = var.ami_id
   instance_type = var.instance_type
-  security_group_names = [ var.privSGname ]
+  # security_group_names = [ var.privSGname ]
   user_data = filebase64("${path.module}/script.sh")
 }
 
